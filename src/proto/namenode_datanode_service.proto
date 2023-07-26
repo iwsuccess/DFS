@@ -1,0 +1,64 @@
+syntax = "proto3";
+package Rpc;
+
+message DataNodeLocation {
+    // ip:port to this datanode
+    string location = 1;
+}
+
+message DataNode {
+    string location = 1;
+    // for the use of load balancing
+    // to tell namenode the amount of space on this datanode
+    uint32 available_size = 2;
+    repeated int64 stored_chunk_handles = 3;
+}
+
+message Chunk {
+    int64 chunk_handle = 1;
+    repeated string location = 2;
+    int64 size = 3;
+}
+
+service DataNodeControlerService {    
+    // to check if the datanode is alive
+    rpc CheckHeartbeat(HeartbeatRequest) returns (HeartbeatReply) {}
+
+    // send request to tell a datanode to copy chunk to another chunk
+    rpc CopyChunk(CopyChunkRequest) returns (CopyChunkReply) {}
+}
+
+service ReportDataNodeSerivce {
+    // each datanode reriodically reports the chunks it has
+    // namenode replies with the identity of all chunk 
+    rpc ReportDataNode(ReportDataNodeRequest) returns (ReportDataNodeReply){};
+}
+
+message ReportDataNodeRequest {
+    DataNode datanode = 1;
+}
+
+message ReportDataNodeReply {
+    // to do
+}
+
+message HeartbeatRequest {
+    // just empty message
+}
+
+message HeartbeatReply {
+    // the original request associated with this reply
+    HeartbeatRequest request = 1;
+}
+
+message CopyChunkRequest {
+    string location = 1;
+    int64 chunk_handle = 2;
+}
+
+message CopyChunkReply {
+
+}
+
+
+

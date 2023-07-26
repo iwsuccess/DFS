@@ -1,0 +1,317 @@
+[INFO | 2022-08-22 07:34:38,001] | client_id: 1111 init.
+[INFO | 2022-08-22 07:39:45,683] | Put(): local file size is: -1
+[INFO | 2022-08-22 07:39:46,688] | Put():GetWriteAddr() Succeed.
+[INFO | 2022-08-22 07:41:06,734] | client_id: 1111 init.
+[INFO | 2022-08-22 07:41:26,935] | Put(): local file size is: 4
+[INFO | 2022-08-22 07:41:27,937] | Put():GetWriteAddr() Succeed.
+[INFO | 2022-08-22 07:41:27,937] | handle_id: 1661125134516
+[INFO | 2022-08-22 07:41:27,937] | 47.97.218.168:50053, 
+[INFO | 2022-08-22 07:41:27,937] | 47.97.218.168:50055, 
+[INFO | 2022-08-22 07:41:27,937] | 47.97.218.168:50054, 
+[INFO | 2022-08-22 07:41:27,939] | 0-th write handle_1661125134516 at 47.97.218.168:50053
+[INFO | 2022-08-22 07:41:43,164] | rpc WriteChunk() succeed
+[INFO | 2022-08-22 07:41:43,164] | ------------ WriteChunk() exit -----------
+[INFO | 2022-08-22 07:41:43,164] | Put() exit.
+[INFO | 2022-08-22 07:46:48,308] | Put(): local file size is: 4
+[INFO | 2022-08-22 07:46:49,319] | Put():GetWriteAddr() Succeed.
+[INFO | 2022-08-22 07:46:49,319] | handle_id: 1661125591435
+[INFO | 2022-08-22 07:46:49,319] | 47.97.218.168:50053, 
+[INFO | 2022-08-22 07:46:49,319] | 47.97.218.168:50056, 
+[INFO | 2022-08-22 07:46:49,320] | 47.97.218.168:50054, 
+[INFO | 2022-08-22 07:46:49,320] | 0-th write handle_1661125591435 at 47.97.218.168:50053
+[INFO | 2022-08-22 07:47:04,468] | rpc WriteChunk() succeed
+[INFO | 2022-08-22 07:47:04,469] | ------------ WriteChunk() exit -----------
+[INFO | 2022-08-22 07:47:04,469] | Put() exit.
+[INFO | 2022-08-22 08:11:04,411] | Put(): local file size is: 4
+[INFO | 2022-08-22 08:12:26,419] | client_id: 1111 init.
+[INFO | 2022-08-22 08:12:35,061] | Put(): local file size is: 4
+[INFO | 2022-08-22 08:12:36,064] | Put():GetWriteAddr() Succeed.
+[INFO | 2022-08-22 08:12:36,064] | handle_id: 1661127097776
+[INFO | 2022-08-22 08:12:36,064] | 47.97.218.168:50053, 
+[INFO | 2022-08-22 08:12:36,064] | 47.97.218.168:50055, 
+[INFO | 2022-08-22 08:12:36,064] | 47.97.218.168:50052, 
+[INFO | 2022-08-22 08:12:36,068] | 0-th write handle_1661127097776 at 47.97.218.168:50053
+[INFO | 2022-08-22 08:12:50,904] | rpc WriteChunk() succeed
+[INFO | 2022-08-22 08:12:50,904] | ------------ WriteChunk() exit -----------
+[INFO | 2022-08-22 08:12:50,904] | Put() exit.
+[INFO | 2022-08-22 08:24:44,556] | Put(): local file size is: 4
+[INFO | 2022-08-22 08:24:52,755] | client_id: 1111 init.
+[INFO | 2022-08-22 08:25:28,868] | Put(): local file size is: 4
+[INFO | 2022-08-22 08:25:47,317] | client_id: 1111 init.
+[INFO | 2022-08-22 08:26:02,102] | client_id: 1111 init.
+[INFO | 2022-08-22 08:26:08,679] | Put(): local file size is: 4
+[INFO | 2022-08-22 08:26:34,172] | client_id: 1111 init.
+[INFO | 2022-08-22 08:26:59,735] | Put(): local file size is: 4
+[INFO | 2022-08-22 08:27:00,741] | Put():GetWriteAddr() Succeed.
+[INFO | 2022-08-22 08:27:00,741] | handle_id: 1661127983607
+[INFO | 2022-08-22 08:27:00,741] | 47.97.218.168:50054, 
+[INFO | 2022-08-22 08:27:00,741] | 47.97.218.168:50056, 
+[INFO | 2022-08-22 08:27:00,741] | 47.97.218.168:50052, 
+[INFO | 2022-08-22 08:27:00,750] | 0-th write handle_1661127983607 at 47.97.218.168:50054
+[INFO | 2022-08-22 08:27:14,547] | rpc WriteChunk() succeed
+[INFO | 2022-08-22 08:27:14,547] | ------------ WriteChunk() exit -----------
+[INFO | 2022-08-22 08:27:14,547] | Put() exit.
+[INFO | 2022-08-22 08:30:28,210] | Put(): local file size is: 4
+[INFO | 2022-08-22 08:30:29,213] | Put():GetWriteAddr() Succeed.
+[INFO | 2022-08-22 08:30:29,213] | handle_id: 1661128196078
+[INFO | 2022-08-22 08:30:29,213] | 47.97.218.168:50055, 
+[INFO | 2022-08-22 08:30:29,213] | 47.97.218.168:50053, 
+[INFO | 2022-08-22 08:30:29,213] | 47.97.218.168:50052, 
+[INFO | 2022-08-22 08:30:29,217] | 0-th write handle_1661128196078 at 47.97.218.168:50055
+[INFO | 2022-08-22 08:30:45,299] | rpc WriteChunk() succeed
+[INFO | 2022-08-22 08:30:45,300] | ------------ WriteChunk() exit -----------
+[INFO | 2022-08-22 08:30:45,300] | Put() exit.
+[INFO | 2022-08-22 08:33:40,472] | Put(): local file size is: 4
+[INFO | 2022-08-22 08:33:41,478] | Put():GetWriteAddr() Succeed.
+[INFO | 2022-08-22 08:33:41,478] | handle_id: 1661128374623
+[INFO | 2022-08-22 08:33:41,478] | 47.97.218.168:50056, 
+[INFO | 2022-08-22 08:33:41,478] | 47.97.218.168:50053, 
+[INFO | 2022-08-22 08:33:41,478] | 47.97.218.168:50054, 
+[INFO | 2022-08-22 08:33:41,488] | 0-th write handle_1661128374623 at 47.97.218.168:50056
+[INFO | 2022-08-22 08:33:57,889] | rpc WriteChunk() succeed
+[INFO | 2022-08-22 08:33:57,889] | ------------ WriteChunk() exit -----------
+[INFO | 2022-08-22 08:33:57,889] | Put() exit.
+[INFO | 2022-08-22 08:43:01,573] | Put(): local file size is: 4
+[INFO | 2022-08-22 08:43:02,576] | Put():GetWriteAddr() Succeed.
+[INFO | 2022-08-22 08:43:02,576] | handle_id: 1661128875219
+[INFO | 2022-08-22 08:43:02,576] | 47.97.218.168:50055, 
+[INFO | 2022-08-22 08:43:02,576] | 47.97.218.168:50053, 
+[INFO | 2022-08-22 08:43:02,576] | 47.97.218.168:50054, 
+[INFO | 2022-08-22 08:43:02,580] | 0-th write handle_1661128875219 at 47.97.218.168:50055
+[INFO | 2022-08-22 08:43:16,933] | rpc WriteChunk() succeed
+[INFO | 2022-08-22 08:43:16,933] | ------------ WriteChunk() exit -----------
+[INFO | 2022-08-22 08:43:16,933] | Put() exit.
+[INFO | 2022-08-22 08:44:39,633] | Put(): local file size is: 4
+[INFO | 2022-08-22 08:44:40,635] | Put():GetWriteAddr() Succeed.
+[INFO | 2022-08-22 08:44:40,635] | handle_id: 1661128875220
+[INFO | 2022-08-22 08:44:40,635] | 47.97.218.168:50055, 
+[INFO | 2022-08-22 08:44:40,635] | 47.97.218.168:50056, 
+[INFO | 2022-08-22 08:44:40,635] | 47.97.218.168:50052, 
+[INFO | 2022-08-22 08:44:40,638] | 0-th write handle_1661128875220 at 47.97.218.168:50055
+[INFO | 2022-08-22 08:44:55,185] | rpc WriteChunk() succeed
+[INFO | 2022-08-22 08:44:55,185] | ------------ WriteChunk() exit -----------
+[INFO | 2022-08-22 08:44:55,185] | Put() exit.
+[INFO | 2022-08-22 08:45:02,822] | Put(): local file size is: 4
+[INFO | 2022-08-22 08:45:03,824] | Put():GetWriteAddr() Succeed.
+[INFO | 2022-08-22 08:45:03,824] | handle_id: 1661128875221
+[INFO | 2022-08-22 08:45:03,824] | 47.97.218.168:50052, 
+[INFO | 2022-08-22 08:45:03,824] | 47.97.218.168:50055, 
+[INFO | 2022-08-22 08:45:03,824] | 47.97.218.168:50056, 
+[INFO | 2022-08-22 08:45:03,824] | 0-th write handle_1661128875221 at 47.97.218.168:50052
+[INFO | 2022-08-22 08:45:21,271] | rpc WriteChunk() succeed
+[INFO | 2022-08-22 08:45:21,271] | ------------ WriteChunk() exit -----------
+[INFO | 2022-08-22 08:45:21,271] | Put() exit.
+[INFO | 2022-08-22 08:48:27,037] | Put(): local file size is: 4
+[INFO | 2022-08-22 08:48:28,060] | Put():GetWriteAddr() Succeed.
+[INFO | 2022-08-22 08:48:28,060] | handle_id: 1661129274409
+[INFO | 2022-08-22 08:48:28,060] | 47.97.218.168:50054, 
+[INFO | 2022-08-22 08:48:28,060] | 47.97.218.168:50053, 
+[INFO | 2022-08-22 08:48:28,060] | 47.97.218.168:50056, 
+[INFO | 2022-08-22 08:48:28,064] | 0-th write handle_1661129274409 at 47.97.218.168:50054
+[INFO | 2022-08-22 08:48:43,901] | rpc WriteChunk() succeed
+[INFO | 2022-08-22 08:48:43,901] | ------------ WriteChunk() exit -----------
+[INFO | 2022-08-22 08:48:43,901] | Put() exit.
+[INFO | 2022-08-22 08:49:33,324] | GetSubDirPaths() succeed
+[INFO | 2022-08-22 08:49:33,326] | rpc Stat() succeed
+[INFO | 2022-08-22 08:49:33,326] | GetFileInfo() exit.
+
+[INFO | 2022-08-22 08:51:20,743] | client_id: 1111 FindAddr() success.
+[INFO | 2022-08-22 08:51:20,743] | FindAddr() res: 
+[INFO | 2022-08-22 08:51:20,745] | rpc Stat() succeed
+[INFO | 2022-08-22 08:51:20,745] | GetFileInfo() exit.
+
+[INFO | 2022-08-22 08:51:20,745] | remote_file_size: 4
+[INFO | 2022-08-22 08:53:30,001] | client_id: 1111 init.
+[INFO | 2022-08-22 08:53:47,797] | GetSubDirPaths() succeed
+[INFO | 2022-08-22 08:53:47,799] | rpc Stat() succeed
+[INFO | 2022-08-22 08:53:47,799] | GetFileInfo() exit.
+
+[INFO | 2022-08-22 08:54:12,121] | client_id: 1111 FindAddr() success.
+[INFO | 2022-08-22 08:54:12,121] | FindAddr() res: 
+[INFO | 2022-08-22 08:54:12,123] | rpc Stat() succeed
+[INFO | 2022-08-22 08:54:12,123] | GetFileInfo() exit.
+
+[INFO | 2022-08-22 08:54:12,123] | remote_file_size: 4
+[INFO | 2022-08-22 08:55:46,929] | client_id: 1111 init.
+[INFO | 2022-08-22 08:56:50,381] | Put(): local file size is: 4
+[INFO | 2022-08-22 08:56:51,383] | Put():GetWriteAddr() Succeed.
+[INFO | 2022-08-22 08:56:51,383] | handle_id: 1661129787827
+[INFO | 2022-08-22 08:56:51,383] | 47.97.218.168:50052, 
+[INFO | 2022-08-22 08:56:51,383] | 47.97.218.168:50054, 
+[INFO | 2022-08-22 08:56:51,383] | 47.97.218.168:50053, 
+[INFO | 2022-08-22 08:56:51,387] | 0-th write handle_1661129787827 at 47.97.218.168:50052
+[INFO | 2022-08-22 08:57:04,522] | rpc WriteChunk() succeed
+[INFO | 2022-08-22 08:57:04,522] | ------------ WriteChunk() exit -----------
+[INFO | 2022-08-22 08:57:04,522] | Put() exit.
+[INFO | 2022-08-22 08:57:19,888] | client_id: 1111 FindAddr() success.
+[INFO | 2022-08-22 08:57:19,889] | FindAddr() res: 
+[INFO | 2022-08-22 08:57:19,890] | rpc Stat() succeed
+[INFO | 2022-08-22 08:57:19,890] | GetFileInfo() exit.
+
+[INFO | 2022-08-22 08:57:19,890] | remote_file_size: 4
+[INFO | 2022-08-22 09:03:55,003] | client_id: 1111 init.
+[INFO | 2022-08-22 09:05:06,730] | Put(): local file size is: 4
+[INFO | 2022-08-22 09:05:07,735] | Put():GetWriteAddr() Succeed.
+[INFO | 2022-08-22 09:05:07,735] | handle_id: 1661130271186
+[INFO | 2022-08-22 09:05:07,735] | 47.97.218.168:50055, 
+[INFO | 2022-08-22 09:05:07,735] | 47.97.218.168:50052, 
+[INFO | 2022-08-22 09:05:07,735] | 47.97.218.168:50053, 
+[INFO | 2022-08-22 09:05:07,738] | 0-th write handle_1661130271186 at 47.97.218.168:50055
+[INFO | 2022-08-22 09:05:24,355] | rpc WriteChunk() succeed
+[INFO | 2022-08-22 09:05:24,355] | ------------ WriteChunk() exit -----------
+[INFO | 2022-08-22 09:05:24,355] | Put() exit.
+[INFO | 2022-08-22 09:05:43,335] | client_id: 1111 FindAddr() success.
+[INFO | 2022-08-22 09:05:43,335] | FindAddr() res: 
+[INFO | 2022-08-22 09:05:43,337] | rpc Stat() succeed
+[INFO | 2022-08-22 09:05:43,337] | GetFileInfo() exit.
+
+[INFO | 2022-08-22 09:05:43,337] | remote_file_size: 4
+[INFO | 2022-08-22 09:11:03,074] | client_id: 1111 init.
+[INFO | 2022-08-22 09:12:54,178] | Put(): local file size is: 4
+[INFO | 2022-08-22 09:12:55,192] | Put():GetWriteAddr() Succeed.
+[INFO | 2022-08-22 09:12:55,192] | handle_id: 1661130723350
+[INFO | 2022-08-22 09:12:55,192] | 47.97.218.168:50056, 
+[INFO | 2022-08-22 09:12:55,192] | 47.97.218.168:50055, 
+[INFO | 2022-08-22 09:12:55,192] | 47.97.218.168:50054, 
+[INFO | 2022-08-22 09:12:55,196] | 0-th write handle_1661130723350 at 47.97.218.168:50056
+[INFO | 2022-08-22 09:13:11,570] | rpc WriteChunk() succeed
+[INFO | 2022-08-22 09:13:11,570] | ------------ WriteChunk() exit -----------
+[INFO | 2022-08-22 09:13:11,570] | Put() exit.
+[INFO | 2022-08-22 09:13:32,439] | client_id: 1111 FindAddr() success.
+[INFO | 2022-08-22 09:13:32,439] | FindAddr() res: 
+[INFO | 2022-08-22 09:13:32,439] | handle_id: 1661130722523
+[INFO | 2022-08-22 09:13:32,439] | 47.97.218.168:50056, 
+[INFO | 2022-08-22 09:13:32,439] | 47.97.218.168:50055, 
+[INFO | 2022-08-22 09:13:32,439] | 47.97.218.168:50054, 
+[INFO | 2022-08-22 09:13:32,441] | rpc Stat() succeed
+[INFO | 2022-08-22 09:13:32,441] | GetFileInfo() exit.
+
+[INFO | 2022-08-22 09:13:32,441] | remote_file_size: 4
+[INFO | 2022-08-22 09:13:32,441] | 0-th read 47.97.218.168:50056
+[INFO | 2022-08-22 09:13:32,441] | ReadChunk(): length is 4
+[INFO | 2022-08-22 09:13:32,472] | Fail when Get():ReadChunk() 5: Data not found at chunkserver.
+[INFO | 2022-08-22 09:13:32,472] | 1-th read 47.97.218.168:50056
+[INFO | 2022-08-22 09:13:32,472] | ReadChunk(): length is 4
+[INFO | 2022-08-22 09:13:32,495] | Fail when Get():ReadChunk() 5: Data not found at chunkserver.
+[INFO | 2022-08-22 09:13:32,495] | 2-th read 47.97.218.168:50056
+[INFO | 2022-08-22 09:13:32,496] | ReadChunk(): length is 4
+[INFO | 2022-08-22 09:13:32,521] | Fail when Get():ReadChunk() 5: Data not found at chunkserver.
+[INFO | 2022-08-22 09:13:32,521] | 3-th read 47.97.218.168:50056
+[INFO | 2022-08-22 09:13:32,521] | ReadChunk(): length is 4
+[INFO | 2022-08-22 09:13:32,545] | Fail when Get():ReadChunk() 5: Data not found at chunkserver.
+[INFO | 2022-08-22 09:13:32,546] | 0-th read 47.97.218.168:50055
+[INFO | 2022-08-22 09:13:32,546] | ReadChunk(): length is 4
+[INFO | 2022-08-22 09:13:32,589] | Fail when Get():ReadChunk() 5: Data not found at chunkserver.
+[INFO | 2022-08-22 09:13:32,589] | 1-th read 47.97.218.168:50055
+[INFO | 2022-08-22 09:13:32,589] | ReadChunk(): length is 4
+[INFO | 2022-08-22 09:13:32,612] | Fail when Get():ReadChunk() 5: Data not found at chunkserver.
+[INFO | 2022-08-22 09:13:32,612] | 2-th read 47.97.218.168:50055
+[INFO | 2022-08-22 09:13:32,612] | ReadChunk(): length is 4
+[INFO | 2022-08-22 09:13:32,633] | Fail when Get():ReadChunk() 5: Data not found at chunkserver.
+[INFO | 2022-08-22 09:13:32,633] | 3-th read 47.97.218.168:50055
+[INFO | 2022-08-22 09:13:32,633] | ReadChunk(): length is 4
+[INFO | 2022-08-22 09:13:32,657] | Fail when Get():ReadChunk() 5: Data not found at chunkserver.
+[INFO | 2022-08-22 09:13:32,657] | 0-th read 47.97.218.168:50054
+[INFO | 2022-08-22 09:13:32,657] | ReadChunk(): length is 4
+[INFO | 2022-08-22 09:13:32,698] | Fail when Get():ReadChunk() 5: Data not found at chunkserver.
+[INFO | 2022-08-22 09:13:32,698] | 1-th read 47.97.218.168:50054
+[INFO | 2022-08-22 09:13:32,698] | ReadChunk(): length is 4
+[INFO | 2022-08-22 09:13:32,720] | Fail when Get():ReadChunk() 5: Data not found at chunkserver.
+[INFO | 2022-08-22 09:13:32,720] | 2-th read 47.97.218.168:50054
+[INFO | 2022-08-22 09:13:32,720] | ReadChunk(): length is 4
+[INFO | 2022-08-22 09:13:32,745] | Fail when Get():ReadChunk() 5: Data not found at chunkserver.
+[INFO | 2022-08-22 09:13:32,745] | 3-th read 47.97.218.168:50054
+[INFO | 2022-08-22 09:13:32,745] | ReadChunk(): length is 4
+[INFO | 2022-08-22 09:13:32,769] | Fail when Get():ReadChunk() 5: Data not found at chunkserver.
+[INFO | 2022-08-22 09:13:32,769] | Get() exit.
+[INFO | 2022-08-22 10:06:01,275] | client_id: 1111 init.
+[INFO | 2022-08-22 10:06:38,007] | Put(): local file size is: 4
+[INFO | 2022-08-22 10:06:39,012] | Put():GetWriteAddr() Succeed.
+[INFO | 2022-08-22 10:06:39,013] | handle_id: 1661133915912
+[INFO | 2022-08-22 10:06:39,013] | 47.97.218.168:50053, 
+[INFO | 2022-08-22 10:06:39,013] | 47.97.218.168:50054, 
+[INFO | 2022-08-22 10:06:39,013] | 47.97.218.168:50056, 
+[INFO | 2022-08-22 10:06:39,013] | 0-th write handle_1661133915912 at 47.97.218.168:50053
+[INFO | 2022-08-22 10:06:55,495] | rpc WriteChunk() succeed
+[INFO | 2022-08-22 10:06:55,495] | ------------ WriteChunk() exit -----------
+[INFO | 2022-08-22 10:06:55,495] | Put() exit.
+[INFO | 2022-08-22 10:07:17,479] | client_id: 1111 FindAddr() success.
+[INFO | 2022-08-22 10:07:17,479] | FindAddr() res: 
+[INFO | 2022-08-22 10:07:17,479] | handle_id: 1661133917135
+[INFO | 2022-08-22 10:07:17,479] | 47.97.218.168:50052, 
+[INFO | 2022-08-22 10:07:17,479] | 47.97.218.168:50055, 
+[INFO | 2022-08-22 10:07:17,479] | 47.97.218.168:50056, 
+[INFO | 2022-08-22 10:07:17,481] | rpc Stat() succeed
+[INFO | 2022-08-22 10:07:17,481] | GetFileInfo() exit.
+
+[INFO | 2022-08-22 10:07:17,481] | remote_file_size: 4
+[INFO | 2022-08-22 10:07:17,481] | 0-th read 47.97.218.168:50052
+[INFO | 2022-08-22 10:07:17,481] | ReadChunk(): length is 4
+[INFO | 2022-08-22 10:07:17,515] | Fail when Get():ReadChunk() 5: Data not found at chunkserver.
+[INFO | 2022-08-22 10:07:17,515] | 1-th read 47.97.218.168:50052
+[INFO | 2022-08-22 10:07:17,515] | ReadChunk(): length is 4
+[INFO | 2022-08-22 10:07:17,537] | Fail when Get():ReadChunk() 5: Data not found at chunkserver.
+[INFO | 2022-08-22 10:07:17,537] | 2-th read 47.97.218.168:50052
+[INFO | 2022-08-22 10:07:17,537] | ReadChunk(): length is 4
+[INFO | 2022-08-22 10:07:17,573] | Fail when Get():ReadChunk() 5: Data not found at chunkserver.
+[INFO | 2022-08-22 10:07:17,573] | 3-th read 47.97.218.168:50052
+[INFO | 2022-08-22 10:07:17,573] | ReadChunk(): length is 4
+[INFO | 2022-08-22 10:07:17,597] | Fail when Get():ReadChunk() 5: Data not found at chunkserver.
+[INFO | 2022-08-22 10:07:17,597] | 0-th read 47.97.218.168:50055
+[INFO | 2022-08-22 10:07:17,598] | ReadChunk(): length is 4
+[INFO | 2022-08-22 10:07:17,631] | Fail when Get():ReadChunk() 5: Data not found at chunkserver.
+[INFO | 2022-08-22 10:07:17,631] | 1-th read 47.97.218.168:50055
+[INFO | 2022-08-22 10:07:17,631] | ReadChunk(): length is 4
+[INFO | 2022-08-22 10:07:17,657] | Fail when Get():ReadChunk() 5: Data not found at chunkserver.
+[INFO | 2022-08-22 10:07:17,657] | 2-th read 47.97.218.168:50055
+[INFO | 2022-08-22 10:07:17,657] | ReadChunk(): length is 4
+[INFO | 2022-08-22 10:07:17,683] | Fail when Get():ReadChunk() 5: Data not found at chunkserver.
+[INFO | 2022-08-22 10:07:17,683] | 3-th read 47.97.218.168:50055
+[INFO | 2022-08-22 10:07:17,683] | ReadChunk(): length is 4
+[INFO | 2022-08-22 10:07:17,709] | Fail when Get():ReadChunk() 5: Data not found at chunkserver.
+[INFO | 2022-08-22 10:07:17,709] | 0-th read 47.97.218.168:50056
+[INFO | 2022-08-22 10:07:17,709] | ReadChunk(): length is 4
+[INFO | 2022-08-22 10:07:17,756] | Fail when Get():ReadChunk() 5: Data not found at chunkserver.
+[INFO | 2022-08-22 10:07:17,756] | 1-th read 47.97.218.168:50056
+[INFO | 2022-08-22 10:07:17,757] | ReadChunk(): length is 4
+[INFO | 2022-08-22 10:07:17,782] | Fail when Get():ReadChunk() 5: Data not found at chunkserver.
+[INFO | 2022-08-22 10:07:17,782] | 2-th read 47.97.218.168:50056
+[INFO | 2022-08-22 10:07:17,782] | ReadChunk(): length is 4
+[INFO | 2022-08-22 10:07:17,806] | Fail when Get():ReadChunk() 5: Data not found at chunkserver.
+[INFO | 2022-08-22 10:07:17,806] | 3-th read 47.97.218.168:50056
+[INFO | 2022-08-22 10:07:17,806] | ReadChunk(): length is 4
+[INFO | 2022-08-22 10:07:17,833] | Fail when Get():ReadChunk() 5: Data not found at chunkserver.
+[INFO | 2022-08-22 10:07:17,833] | Get() exit.
+[INFO | 2022-08-22 10:11:42,325] | Put(): local file size is: 4
+[INFO | 2022-08-22 10:11:43,336] | Put():GetWriteAddr() Succeed.
+[INFO | 2022-08-22 10:11:43,336] | handle_id: 1010
+[INFO | 2022-08-22 10:11:43,336] | 47.97.218.168:50053, 
+[INFO | 2022-08-22 10:11:43,336] | 47.97.218.168:50052, 
+[INFO | 2022-08-22 10:11:43,336] | 47.97.218.168:50055, 
+[INFO | 2022-08-22 10:11:43,337] | 0-th write handle_1010 at 47.97.218.168:50053
+[INFO | 2022-08-22 10:12:09,393] | rpc WriteChunk() succeed
+[INFO | 2022-08-22 10:12:09,393] | ------------ WriteChunk() exit -----------
+[INFO | 2022-08-22 10:12:09,393] | Put() exit.
+[INFO | 2022-08-22 10:12:12,959] | client_id: 1111 FindAddr() success.
+[INFO | 2022-08-22 10:12:12,959] | FindAddr() res: 
+[INFO | 2022-08-22 10:12:12,959] | handle_id: 1010
+[INFO | 2022-08-22 10:12:12,959] | 47.97.218.168:50055, 
+[INFO | 2022-08-22 10:12:12,959] | 47.97.218.168:50056, 
+[INFO | 2022-08-22 10:12:12,959] | 47.97.218.168:50054, 
+[INFO | 2022-08-22 10:12:12,960] | rpc Stat() succeed
+[INFO | 2022-08-22 10:12:12,961] | GetFileInfo() exit.
+
+[INFO | 2022-08-22 10:12:12,961] | remote_file_size: 4
+[INFO | 2022-08-22 10:12:12,961] | 0-th read 47.97.218.168:50055
+[INFO | 2022-08-22 10:12:12,961] | ReadChunk(): length is 4
+[INFO | 2022-08-22 10:12:12,985] | Warning: ReadChunk read 64 bytes but asked for 4.
+[INFO | 2022-08-22 10:12:12,985] | ReadChunk(): read data content: test
+[INFO | 2022-08-22 10:12:12,986] | Get() exit.
+[INFO | 2022-08-22 10:13:14,503] | Mkdir(): /test1 is created.
+[INFO | 2022-08-22 10:13:22,938] | GetSubDirPaths() succeed
+[INFO | 2022-08-22 10:13:22,940] | rpc Stat() succeed
+[INFO | 2022-08-22 10:13:22,940] | GetFileInfo() exit.
+
+[INFO | 2022-08-22 10:13:22,943] | rpc Stat() succeed
+[INFO | 2022-08-22 10:13:22,943] | GetFileInfo() exit.
+

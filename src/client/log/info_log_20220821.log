@@ -1,0 +1,6 @@
+[INFO | 2022-08-21 23:12:05,323] | client_id: 1111 init.
+[INFO | 2022-08-21 23:15:35,929] | Put(): local file size is: -1
+[INFO | 2022-08-21 23:15:36,931] | Put():GetWriteAddr() Succeed.
+[INFO | 2022-08-21 23:16:19,412] | client_id: 1111 init.
+[INFO | 2022-08-21 23:16:58,741] | Put(): local file size is: -1
+[INFO | 2022-08-21 23:16:59,746] | Put():GetWriteAddr() Succeed.

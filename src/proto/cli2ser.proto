@@ -1,0 +1,153 @@
+syntax = "proto3";
+
+service Cli2Master {
+    // client -> master rpcs
+    // -------------------
+
+    // FindAddr(): client send the file_path, get the chunk_handles and the addr. 
+    rpc FindAddr(FindAddrRequest) returns (FindAddrReply) {}
+    
+    // GetWriteAddr(): for client's API-Put() usage
+    // master tells the client which chunkservers to write to 
+    rpc GetWriteAddr(GetWriteAddrRequest) returns (GetWriteAddrReply) {} 
+
+    // Stat(): client send the file_path, get the file existence, path and size information
+    rpc Stat(StatRequest) returns (StatReply) {} 
+
+    rpc Rename(RenameRequest) returns (RenameReply) {}
+
+    rpc Delete(DeleteRequest) returns (DeleteReply) {}
+    
+    rpc Mkdir(MkdirRequest) returns (MkdirReply) {}
+    
+    // for client's API-List() usage.
+    rpc GetSubDirPaths(GetSubDirPathsRequest) returns (GetSubDirPathsReply) {}
+
+    
+}
+
+// cli2master: rpc FindAddr()
+message FindAddrRequest {
+    string file_path = 1;
+}
+message FindAddrReply {
+    // a file is splited into many chunks.
+    // `chunk_handles`: identify these chunks.
+    // `addrs`: the ip:port of the servers that store these chunks.
+    repeated int64 chunk_handles = 1;
+    
+    // Only one copy of data per chunkhandle -> Multiple copies of data per chunkhandle
+    // repeated string addrs = 2; 
+    // { handle1_addr, handle2_addr, ...} 
+    // -> {
+    //      {handle1_addr_replicaA, handle1_addr_replicaB, handle1__addr_replicaC},
+    //      {handle2_addr_replicaA, handle2_addr_replicaB, handl2__addr_replicaC},
+    // }
+    message ReplicaAddrs {
+        repeated string ip_ports = 1;
+    }
+    repeated ReplicaAddrs addrs = 2;
+    
+}
+
+// cli2master: rpc GetWriteAddr()
+message GetWriteAddrRequest {
+    // `remote_file_path`: path of the file to be written by the client
+    // `write_data_size`: the size of the data to be written by the client
+    string remote_file_path = 1;
+    int64 write_data_size = 2;
+}
+
+message GetWriteAddrReply {
+    // 思考：如何解决将一个文件的若干部分映射到若干 chunk_handle 的问题
+    // 一种简单貌似可行的方法是：按顺序然后依据 CHUNKSIZE 将文件切分
+    // 成若干 chunk。chunk_handles 数组也即对应着切分分配的 chunk 顺序。
+    repeated int64 chunk_handles = 1;
+    
+    // repeated string addrs = 2;
+    message ReplicaAddrs {
+        repeated string ip_ports = 1;
+    }
+    repeated ReplicaAddrs addrs = 2;
+}
+
+// cli2master: rpc GetSubDirPaths()
+message GetSubDirPathsRequest {
+    string file_path = 1;
+}
+
+message GetSubDirPathsReply {
+    repeated string subdir_file_paths = 1;
+}
+
+// cli2master: rpc Mkdir()
+message MkdirRequest {
+    string new_file_path = 1;
+}
+message MkdirReply {}
+
+// cli2master: rpc Rename()
+message RenameRequest {
+    string src_path = 1;
+    string des_path = 2;
+}
+message RenameReply {
+    
+}
+
+// cli2master: rpc Delete()
+message DeleteRequest {
+    string remote_file_path = 1;
+}
+message DeleteReply {
+
+}
+
+// cli2master: rpc Stat()
+message StatRequest {
+    string file_path = 1;
+}
+message StatReply {
+    bool existed = 1;
+    string file_path = 2;
+    uint64 file_size = 3;
+}
+
+service Cli2ChunkServer {
+    // client -> chunk_server rpcs
+    // --------------------------
+    
+    // ReadChunk(): client send the read request, get the file data.
+    rpc ReadChunk(ReadChunkRequest) returns (ReadChunkReply) {}
+    
+    rpc WriteChunk(WriteChunkRequest) returns (WriteChunkReply) {}
+}
+
+// cli2chunkserver: rpc ReadChunk()
+message WriteChunkRequest {
+    // at the chunk identified by `chunkhandle`, 
+    // from the `offset` pos, write `length` bytes(`data`) into it.
+    int64 chunkhandle = 1;
+    int64 offset = 2;
+    int64 length = 3;
+    string data = 4;
+}
+message WriteChunkReply {
+    // `bytes_write`: data length.
+    int64 bytes_write = 1;
+}
+
+// cli2chunkserver: rpc ReadChunk()
+message ReadChunkRequest {
+    // at the chunk identified by `chunkhandle`, 
+    // from the `offset` pos, read `length` bytes.
+    int64 chunkhandle = 1;
+    int64 offset = 2;
+    int64 length = 3;
+}
+message ReadChunkReply {
+    // `data`: the file data.
+    // `bytes_read`: data length.
+    string data = 1;
+    int64 bytes_read = 2;
+}

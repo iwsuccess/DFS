@@ -1,0 +1,301 @@
+syntax = "proto3";
+
+package Rpc;
+
+service Cli2Master {
+    // client -> master rpcs
+    // -------------------
+    // FindAddr(): client send the filename, get the chunk_handles and the addr. 
+    rpc FindAddr(FindAddrRequest) returns (FindAddrReply) {} 
+
+    // for client's API-Put() usage
+    // master tells the client which chunkservers to write to 
+    rpc GetWriteAddr(GetWriteAddrRequest) returns (GetWriteAddrReply) {} 
+
+    // Stat(): client send the filename, get the file existence, path and size information
+    rpc Stat(StatRequest) returns (StatReply) {} 
+
+    rpc Rename(RenameRequest) returns (RenameReply) {}
+
+    rpc Delete(DeleteRequest) returns (DeleteReply) {}
+
+    rpc Mkdir(MkdirRequest) returns (MkdirReply) {}
+
+    // for client's API-List() usage.
+    rpc GetSubDirNames(GetSubDirNamesRequest) returns (GetSubDirNamesReply) {}
+
+    rpc RequestVote(RequestVoteArgs) returns(RequestVoteReply){}
+
+    rpc AppendEntries(AppendEntriesArgs) returns(AppendEntriesReply){}
+
+}
+
+message LogEntry{
+    int32 Term=1;
+    int32 command=2;  
+    GetWriteAddrRequest getw=3;
+    RenameRequest rename=4;
+    DeleteRequest del=5;
+    //MkdirRequest mkdir=6;
+     string filepath = 6;//共用
+    //src des 
+    string src=7;
+    string des=8;
+    int64 size=9;//写的大小
+
+
+}
+message AppendEntriesArgs{
+    repeated LogEntry Entries=1; 
+    int32 ATerm=2 ;               
+        int32 LeaderId=3;    
+        int32 PrevLogIndex=4;     
+        int32 PrevLogTerm=5;     
+        int32 LeaderCommit=6  ;    
+}
+message AppendEntriesReply{
+    int32 Term =1     ;   // leader的term可能是过时的，此时收到的Term用于更新他自己
+        bool Success=2   ;  //        如果follower与Args中的PreLogIndex/PreLogTerm都匹配才会接过去新的日志（追加），不匹配直接返回false
+        int32 UpNextIndex=3  ; 
+    int32  AppendEntriesState=4;
+}
+
+
+message RequestVoteArgs{
+    int32 term=1; //        需要竞选的人的任期
+        int32 candidateId=2; // 需要竞选的人的Id
+        int32 lastLogindex=3; 
+        int32 lastLogterm=4; 
+}
+message RequestVoteReply{
+    int32 term=1;
+        bool votegranted=2; 
+}
+
+// cli2master: rpc FindAddr()
+message FindAddrRequest {
+    string filepath= 1;
+}
+message FindAddrReply {
+    // a file is splited into many chunks.
+    // `chunk_handles`: identify these chunks.
+    // `addrs`: the ip:port of the servers that store these chunks.
+    repeated int64 chunk_handles = 1;
+    message ReplicaAddrs {
+        repeated string ip_ports = 1;
+    }
+    repeated ReplicaAddrs addrs = 2;
+}
+
+//写文件
+// cli2master: rpc GetWriteAddr()
+message GetWriteAddrRequest {
+    // `remote_file_path`: name of the file to be written by the client
+    // `write_data_size`: the size of the data to be written by the client
+    string remote_file_path = 1;
+    int64 write_data_size = 2;
+
+}
+
+message GetWriteAddrReply {
+    // 思考：如何解决将一个文件的若干部分映射到若干 chunk_handle 的问题
+    // 一种简单貌似可行的方法是：按顺序然后依据 CHUNKSIZE 将文件切分
+    // 成若干 chunk。chunk_handles 数组也即对应着切分分配的 chunk 顺序。
+    repeated int64 chunk_handles = 1;
+    message ReplicaAddrs {
+        repeated string ip_ports = 1;
+    }
+    repeated ReplicaAddrs addrs = 2;
+}
+
+// cli2master: rpc GetSubDirNames()
+message GetSubDirNamesRequest {
+    string file_path = 1;
+}
+
+message GetSubDirNamesReply {
+    repeated string subdir_file_names = 1;
+}
+
+// cli2master: rpc Mkdir()
+message MkdirRequest {
+    string new_file_path = 1;
+}
+message MkdirReply {}
+
+// cli2master: rpc Rename()
+message RenameRequest {
+    string src_path = 1;
+    string des_path = 2;
+}
+message RenameReply {
+
+}
+
+// cli2master: rpc Delete()
+message DeleteRequest {
+    string remote_file_path = 1;
+}
+message DeleteReply {
+
+}
+
+// cli2master: rpc Stat()
+message StatRequest {
+    string filepath = 1;
+}
+message StatReply {
+    bool existed = 1;
+    string file_name = 2;
+    uint64 file_size = 3;
+}
+
+service Cli2ChunkServer {
+    // client -> chunk_server rpcs
+    // --------------------------
+
+    // ReadChunk(): client send the read request, get the file data.
+    rpc ReadChunk(ReadChunkRequest) returns (ReadChunkReply) {}
+
+    rpc WriteChunk(WriteChunkRequest) returns (WriteChunkReply) {}
+
+    rpc SayHello (HelloRequest) returns (HelloReply) {}
+}
+
+// The request message containing the user's name.
+message HelloRequest {
+  string name = 1;
+}
+
+// The response message containing the greetings
+message HelloReply {
+  string message = 1;
+}
+
+// cli2chunkserver: rpc ReadChunk()
+// Write Chunk Request
+message WriteChunkRequest {
+  // at the chunk identified by `chunkhandle`, 
+  // from the `offset` pos, write `length` bytes(`data`) into it.
+  int64 client_id = 1;
+  //google.protobuf.Timestamp timestamp = 2;
+  int64 chunkhandle = 2;
+  int64 offset = 3;
+  int64 length = 4;
+  repeated string locations = 5; 
+  bytes data = 6;
+}
+message WriteChunkReply {
+    // `bytes_read`: data length.
+    int64 bytes_read = 2;
+}
+
+// cli2chunkserver: rpc ReadChunk()
+message ReadChunkRequest {
+    // at the chunk identified by `chunkhandle`, 
+    // from the `offset` pos, read `length` bytes.
+    int64 chunkhandle = 1;
+    int64 offset = 2;
+    int64 length = 3;
+}
+message ReadChunkReply {
+    // `data`: the file data.
+    // `bytes_read`: data length.
+    string data = 1;
+    int64 bytes_read = 2;
+}
+message DataNodeLocation {
+    // ip:port to this datanode
+    string location = 1;
+}
+
+message DataNode {
+    string location = 1;
+    // for the use of load balancing
+    // to tell namenode the amount of space on this datanode
+    uint32 available_size = 2;
+    repeated int64 stored_chunk_handles = 3;
+}
+
+message Chunk {
+    int64 chunk_handle = 1;
+    repeated string location = 2;
+    int64 size = 3;
+}
+
+service DataNodeControlerService {    
+    // to check if the datanode is alive
+    rpc CheckHeartbeat(HeartbeatRequest) returns (HeartbeatReply) {}
+
+    // send request to tell a datanode to copy chunk to another chunk
+    rpc CopyChunk(CopyChunkRequest) returns (CopyChunkReply) {}
+}
+
+service ReportDataNodeSerivce {
+    // each datanode reriodically reports the chunks it has
+    // namenode replies with the identity of all chunk 
+    rpc ReportDataNode(ReportDataNodeRequest) returns (ReportDataNodeReply){};
+}
+
+message ReportDataNodeRequest {
+        string location = 1;
+    // for the use of load balancing
+    // to tell namenode the amount of space on this datanode
+    uint32 available_size = 2;
+    repeated int64 stored_chunk_handles = 3;
+}
+
+message ReportDataNodeReply {
+    // to do
+}
+
+message HeartbeatRequest {
+    // just empty message
+}
+
+message HeartbeatReply {
+    // the original request associated with this reply
+    HeartbeatRequest request = 1;
+}
+
+message CopyChunkRequest {
+    string location = 1;
+    int64 chunk_handle = 2;
+}
+
+message CopyChunkReply {
+
+}
+
+service ChunkServer2Chunkserver{
+
+    // Chunkserver -> Chunkserver RPCs
+    // SerializedWrite from primary to replica ChunkServers
+    rpc MultiWrite (MultiWriteRequest) returns (MultiWriteReply) {} 
+
+    rpc CopyChunkWrite(CopyChunkWriteRequest) returns(CopyChunkWriteReply){}  
+
+}
+
+
+message MultiWriteRequest {
+  int64 client_id = 1;
+  //google.protobuf.Timestamp timestamp = 2;
+  int64 chunkhandle = 2;
+  int64 offset = 3;
+  bool padded_chunk = 4; 
+  bytes data=5;
+
+}
+
+message MultiWriteReply {
+  int64 bytes_written = 1;
+}
+
+message CopyChunkWriteRequest { 
+  bytes data = 1;
+  int64 chunk_handle = 2;
+}
+message CopyChunkWriteReply {
+
+}

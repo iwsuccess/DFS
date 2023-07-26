@@ -1,0 +1,79 @@
+#pragma once
+#include "NameNode.grpc.pb.h"
+#include"NameNode.pb.h"
+#include <grpcpp/grpcpp.h>
+#include <memory>
+#include<algorithm>
+#include<unordered_map>
+#include <iostream>
+#include<mutex>
+#include<string>
+#include"FileTree.h"
+#include<vector>
+#define CHUNK_SIZE 64*1024*1024
+struct ChunkLocation {
+    std::string location; // "ip:port"
+    //int64_t version;
+};
+//  struct ChunkServer{
+//      std::unique_ptr<gfs::GFS::Stub> stub;
+//      //租约
+// }
+struct LogEntry{
+    int Term;
+    int command;  
+};
+struct Chunk {
+
+    std::vector<ChunkLocation> location;//0was primary
+    int chunk_size;
+};
+
+//文件元数据
+// struct FileMetadata {
+//    // File name
+//    std::string filename;
+//    std::string file_path;
+//    uint64_t size;
+//    // An map of chunk index to chunk handle
+//    std::unordered_map<int, int64_t> chunk_handles;
+// };
+
+class ServiceImpl:public Rpc::Cli2Master::Service {
+    public:                                                                                                              
+    grpc::Status FindAddr(grpc::ServerContext*  context,const Rpc::FindAddrRequest* request,Rpc::FindAddrReply* response) override;
+    grpc::Status GetWriteAddr(grpc::ServerContext*  context,const Rpc::GetWriteAddrRequest* request,Rpc::GetWriteAddrReply* response) override;
+    grpc::Status Stat(grpc::ServerContext*  context,const Rpc::StatRequest* request,Rpc::StatReply* response) override;
+    grpc::Status Rename(grpc::ServerContext*  context,const Rpc::RenameRequest* request,Rpc::RenameReply* response) override;
+    grpc::Status Delete(grpc::ServerContext*  context,const Rpc::DeleteRequest* request,Rpc::DeleteReply* response) override;
+    grpc::Status Mkdir(grpc::ServerContext*  context,const Rpc::MkdirRequest* request,Rpc::MkdirReply* response) override;
+    grpc::Status GetSubDirNames(grpc::ServerContext*  context,const Rpc::GetSubDirNamesRequest* request,Rpc::GetSubDirNamesReply* response) override;
+    ServiceImpl(int index);
+    ~ServiceImpl();
+       int _myindex;
+    // ServiceImpl(int index)=default;
+    private:
+
+    FileTree* GetNode(std::string filepath);
+    bool CreateNode(std::string filepath,size_t size,int64_t hanlde);
+    //路径->文件元数据
+    //std::unordered_map<std::string, FileTree*> _PathNode;
+    //chunk handle->chunk
+    std::vector<int> vport;//记录可用location
+    std::unordered_map<int64_t,Chunk*> _chunks; 
+    //ip：port to chunkServer
+    std::unordered_map<std::string,ChunkLocation> _Chunklocation;//暂时这样写
+    int64_t hanlde=0;
+    GetFiles* GF;
+      //ip+port->chunkServer
+    // std::unordered_map<std::string, ChunkServer> chunk_servers;
+    std::mutex _mtx;
+
+    //Raft
+    std::vector<std::shared_ptr<Rpc::Cli2Master::Stub>> _Stub; 
+    int curTerm;//当前任期
+    int VoteFor;//投票给了谁
+    LogEntry[]  logs  ;
+};
+
+
