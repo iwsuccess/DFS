@@ -43,5 +43,6 @@ chunksever 将数据写到其他备份 chunksever 的节点上。
 
 （3）最后，namenode 会下放写权限给包含该 chunk 的某个 chunksever（租约的机制），让其将该 chunk 备份一份到另一个的 chunksever 上（剩余容量最大）。从而始终保证 chunk 的副本数量为 3,并且任意两个相同的 chunk 不在同一个 chunksever上。
 ### demo结果展示
-链接：https://pan.baidu.com/s/1CtjY7-iPRcQ15nkL8ciPBA 
-提取码：yl8g
+链接：https://pan.baidu.com/s/1aWJcjW1O9ZCIcPnGMIdfkg 
+
+提取码：f9kd
