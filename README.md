@@ -1,2 +1,43 @@
-# DFS
-åˆ†å¸ƒå¼â½‚ä»¶å­˜å‚¨ç³»ç»Ÿçš„ç®€æ˜“å®žçŽ°ï¼ˆç¬¬å››å±Šå­—èŠ‚è·³åŠ¨é’è®­è¥å¤§æ•°æ®ä¸“åœº-æ—¥æœˆåŒè¾‰å¥–ï¼ˆç¬¬ä¸€åï¼‰ï¼‰
+# DFS£¨¼òÒ×µÄ·Ö²¼Ê½´æ´¢ÏµÍ³£©
+### ÏîÄ¿×ÜÌå¼Ü¹¹
+Ö÷Òª·ÖÎªÈý´ó¹¦ÄÜÄ£¿é£¬¿Í»§¶ËÄ£¿é£¬ÔªÊý¾Ý·þÎñÄ£¿é£¬´æ´¢ÒýÇæÄ£¿é¡£
+- ¿Í»§¶Ë¸ºÔðÌá¹©ÓÃ»§²Ù×÷µÄ½Ó¿Ú£¨±ÈÈç get,put£¬mkdir µÈ²Ù×÷£©ÒÔ¼°ÎÄ¼þ·Ö¿é²Ù×÷£¨Ò»
+¸ö chunk ´óÐ¡Îª 128kb£©¡£
+- ÔªÊý¾ÝÄ£¿é²ÉÓÃ raft Ð­Òé±£Ö¤Ò»ÖÂÐÔ£»Í¨¹ýÎÄ¼þÄ¿Â¼Ê÷À´Î¬»¤ÔªÊý¾ÝÐÅÏ¢£¨ÎÄ¼þÃû£¬
+chunk_id£¬chunk µÄ´æ´¢Î»ÖÃ£©£¬ÀûÓÃ leveldb Êý¾Ý¿âÀ´³Ö¾Ã»¯ÔªÊý¾ÝÐÅÏ¢£»»¹Ìá¹©¸±±¾²¹È«¹¦ÄÜ£¬×Ô¶¯À©ÈÝ¹¦ÄÜ¡£
+- ´æ´¢ÒýÇæÄ£¿éÊµÏÖÁËÎÄ¼þ¶ÁÐ´£¬¶à¸±±¾Ð´£¬²¢³Ö¾Ã»¯ÔÚ´ÅÅÌÉÏ£»ÊµÏÖÁËÐÄÌø»úÖÆÒÔ¼°ÏòÔªÊý¾ÝÄ£¿éÉÏ±¨ÐÅÏ¢£¨³ÖÓÐµÄ chunk_handlesÐÅÏ¢£¬chunk_Server¿ÉÓÃÈÝÁ¿µÈ£©
+![](image/dfs_frm.png)
+### ÏîÄ¿¼¼ÊõÕ»¼°¹¦ÄÜ
+- ÏîÄ¿×ÜÌåÉÏ²ÉÓÃC++¿ª·¢¡£
+- Client,Namenode,DatanodeÖ®¼äÍ¨¹ý Grpc½øÐÐÍ¨ÐÅ¡£
+- Êý¾ÝÔÚ½ø??Âç´«Êä¡¢±¾µØ¶ÔÏóµÄ³Ö¾Ã»¯ºÍ¼ÓÔØµ½ÄÚ´æÊ±£¬ÐòÁÐ»¯Ð­Òé²É?protobuf¡£
+- ¶à¸öNamenodeÖ®¼äÍ¨¹ý Raft Ð­Òé±£Ö¤ÔªÊý¾ÝµÄÒ»ÖÂÐÔ¡£
+- Í¨¹ýÎÄ¼þÄ¿Â¼Ê÷ÊµÏÖÔªÊý¾ÝÐÅÏ¢Î¬»¤£¬°üÀ¨ÔöÉ¾¸Ä²é£¬Î¬»¤¶ÁÐ´Ëø£¬±£Ö¤¶ÁÐ´²Ù×÷µÄÔ­×ÓÐÔ¡£
+- ÊµÏÖÁË¶ªÊ§¸±±¾×Ô¶¯²¹È«¹¦ÄÜ£¬±£Ö¤Êý¾ÝµÄ¿É¿¿ÐÔ¡£
+- ÊµÏÖÁË×Ô¶¯À©ÈÝ¹¦ÄÜÒÔ¼°»ù±¾µÄ¸ºÔØ¾ùºâ²ßÂÔ¡£
+- ÊµÏÖÁË´æ´¢ÒýÇæÄ£¿éÓëÔªÊý¾Ý·þÎñÄ£¿éµÄÐÄÌø»úÖÆ£¬ÒÔ¼°´æ´¢ÒýÇæÄ£¿éÏòÔªÊý¾ÝÄ£¿éÉÏ±¨½ÚµãµÄÏà¹ØÐÅÏ¢¡£
+- ÊµÏÖÁË´æ´¢ÒýÇæÄ£¿éµÄÎÄ¼þ¶ÁÐ´£¬¶à¸±±¾Ð´£¬²¢ÇÒ³Ö¾Ã»¯ÔÚ´ÅÅÌÉÏ¡£
+- Í¨¹ý Leveldb Êý¾Ý¿âÊµÏÖ³Ö¾Ã»¯´æ´¢¡£
+#### ¼¸¸öºËÐÄÎÊÌâ
+#####  NameNode¼¯Èº
+- »ù±¾Ë¼Â·£º¸ù¾ÝRaftÐ­ÒéÑ¡¾Ù³öLeader£¬ClientÏòLeader½áµã·¢ËÍÇëÇó£¬µ±leaderÐ´?Ïà¹Ø²Ù×÷µÄ?Ö¾£¬²¢ÇÒÍ¨¹ý?Ìø´«µÝ¸øFollower½áµã£¬Follower½áµãÐ´??Ö¾ºó£¬·µ»Ø³É¹¦±êÊ¶£¬µ±?°ëÒÔÉÏµÄ½áµãÐ´?³É¹¦ºó£¬LeaderÐ´?µ½×´Ì¬»úÖÐ£¬·µ»Ø³É¹¦¸ø¿Í?¶Ë£¬FollowerÊÕµ½ÏÂ?´Î?ÌøµÄÏûÏ¢ºó£¬Ò²Ó¦?µ½×´Ì¬»úÖÐ¡£
+- ÈÝ´í£ºÈç¹ûÊÇFollowerå´»ú£¬´ËÊ±Èç¹ûÈÔÈ»ÓÐ?°ëÒÔÉÏµÄFollower½áµã£¬¼¯ÈºÈÔÈ»¿ÉÒÔÕý³£ÔË?£»Èç¹ûÊÇLeaderå´»ú£¬¾ÍÐèÒªÖØÐÂÑ¡¾ÙÐÂµÄLeader½áµã£¬Ñ¡¾Ù³É¹¦ºó£¬¼ÌÐøÌá¹©·þÎñ¡£
+##### ¶à¸±±¾Ð´¹¦ÄÜ
+- ÎÒÃÇÕâÀïµÄ¶à¸±±¾Ð´²ßÂÔÊÇ£ºÐÇÐÍÐ´¡£
+£¨1£©Ê×ÏÈ¿Í»§¶Ë»áÏòÔªÊý¾Ý·þÎñÄ£¿éÇëÇóÐèÒªÐ´ÈëµÄ chunksever µÄµØÖ·£»
+£¨2£©ÔªÊý¾ÝÄ£¿é»á¸ø¿Í»§¶ËÒ»¸öÊý×é£¬±íÊ¾µ±Ç° chunk ÐèÒªÐ´ÈëµÄËùÓÐ chunkserver£¨3
+¸ö£©¡£
+£¨3£©¿Í»§¶Ë½«ÏòµÚÒ»¸ö chunksever£¨primary chunksever£©ÖÐÐ´ÈëÊý¾Ý£¬È»ºóÓÉ¸Ã
+chunksever ½«Êý¾ÝÐ´µ½ÆäËû±¸·Ý chunksever µÄ½ÚµãÉÏ¡£
+£¨4£©µÈËùÓÐµÄ chunksever ¶¼Ð´Èë³É¹¦ºó£¬¸Ã primary chunksever ²Å»á·µ»Ø¸ø¿Í»§¶ËÐ´Èë³É¹¦¡£
+##### ¸±±¾×Ô¶¯²¹È«
+- namenode Ö®¼äÍ¨¹ýÐÄÌø»úÖÆÌ½²â datanade ÊÇ·ñå´»ú£¬Èç¹û·¢ÏÖÄ³¸ö chunkserver å´»ú£¬Ò²¾ÍÊÇÒ»¶ÎÊ±¼äÊÕ²»µ½¸Ã chunkserver µÄÐÄÌø¡£
+£¨1£©Ê×ÏÈ£¬master Ê×ÏÈ»áÔÚÔªÊý¾ÝÐÅÏ¢ÖÐ²éÕÒ³ö¸Ã chunksever ËùÓµÓÐµÄËùÓÐ chunk¡£
+£¨2£©Æä´Î£¬²éÕÒ³ö chunk µÄÆäËû¸±±¾ËùÔÚµÄ chunkserver¡£
+£¨3£©×îºó£¬namenode »áÏÂ·ÅÐ´È¨ÏÞ¸ø°üº¬¸Ã chunk µÄÄ³¸ö chunksever£¨×âÔ¼µÄ»úÖÆ£©£¬ÈÃÆä½«¸Ã chunk ±¸·ÝÒ»·Ýµ½ÁíÒ»¸öµÄ chunksever ÉÏ£¨Ê£ÓàÈÝÁ¿×î´ó£©¡£´Ó¶øÊ¼ÖÕ±£Ö¤ chunk µÄ¸±±¾ÊýÁ¿Îª 3,²¢ÇÒÈÎÒâÁ½¸öÏàÍ¬µÄ chunk ²»ÔÚÍ¬Ò»¸ö chunkseverÉÏ¡£
+### demo½á¹ûÕ¹Ê¾
+<video
+src="http://www.w3school.com.cn/i/movie.mp4" controls=""
+height=400 
+width=600> 
+</video>
