@@ -10,7 +10,7 @@ chunk_id£¬chunk µÄ´æ´¢Î»ÖÃ£©£¬ÀûÓÃ leveldb Êý¾Ý¿âÀ´³Ö¾Ã»¯ÔªÊý¾ÝÐÅÏ¢£»»¹Ìá¹©¸±±¾²
 ### ÏîÄ¿¼¼ÊõÕ»¼°¹¦ÄÜ
 - ÏîÄ¿×ÜÌåÉÏ²ÉÓÃC++¿ª·¢¡£
 - Client,Namenode,DatanodeÖ®¼äÍ¨¹ý Grpc½øÐÐÍ¨ÐÅ¡£
-- Êý¾ÝÔÚ½ø??Âç´«Êä¡¢±¾µØ¶ÔÏóµÄ³Ö¾Ã»¯ºÍ¼ÓÔØµ½ÄÚ´æÊ±£¬ÐòÁÐ»¯Ð­Òé²É?protobuf¡£
+- Êý¾ÝÔÚ½øÐÐÂç´«Êä¡¢±¾µØ¶ÔÏóµÄ³Ö¾Ã»¯ºÍ¼ÓÔØµ½ÄÚ´æÊ±£¬ÐòÁÐ»¯Ð­Òé²ÉÓÃprotobuf¡£
 - ¶à¸öNamenodeÖ®¼äÍ¨¹ý Raft Ð­Òé±£Ö¤ÔªÊý¾ÝµÄÒ»ÖÂÐÔ¡£
 - Í¨¹ýÎÄ¼þÄ¿Â¼Ê÷ÊµÏÖÔªÊý¾ÝÐÅÏ¢Î¬»¤£¬°üÀ¨ÔöÉ¾¸Ä²é£¬Î¬»¤¶ÁÐ´Ëø£¬±£Ö¤¶ÁÐ´²Ù×÷µÄÔ­×ÓÐÔ¡£
 - ÊµÏÖÁË¶ªÊ§¸±±¾×Ô¶¯²¹È«¹¦ÄÜ£¬±£Ö¤Êý¾ÝµÄ¿É¿¿ÐÔ¡£
@@ -20,8 +20,8 @@ chunk_id£¬chunk µÄ´æ´¢Î»ÖÃ£©£¬ÀûÓÃ leveldb Êý¾Ý¿âÀ´³Ö¾Ã»¯ÔªÊý¾ÝÐÅÏ¢£»»¹Ìá¹©¸±±¾²
 - Í¨¹ý Leveldb Êý¾Ý¿âÊµÏÖ³Ö¾Ã»¯´æ´¢¡£
 #### ¼¸¸öºËÐÄÎÊÌâ
 #####  NameNode¼¯Èº
-- »ù±¾Ë¼Â·£º¸ù¾ÝRaftÐ­ÒéÑ¡¾Ù³öLeader£¬ClientÏòLeader½áµã·¢ËÍÇëÇó£¬µ±leaderÐ´?Ïà¹Ø²Ù×÷µÄ?Ö¾£¬²¢ÇÒÍ¨¹ý?Ìø´«µÝ¸øFollower½áµã£¬Follower½áµãÐ´??Ö¾ºó£¬·µ»Ø³É¹¦±êÊ¶£¬µ±?°ëÒÔÉÏµÄ½áµãÐ´?³É¹¦ºó£¬LeaderÐ´?µ½×´Ì¬»úÖÐ£¬·µ»Ø³É¹¦¸ø¿Í?¶Ë£¬FollowerÊÕµ½ÏÂ?´Î?ÌøµÄÏûÏ¢ºó£¬Ò²Ó¦?µ½×´Ì¬»úÖÐ¡£
-- ÈÝ´í£ºÈç¹ûÊÇFollowerå´»ú£¬´ËÊ±Èç¹ûÈÔÈ»ÓÐ?°ëÒÔÉÏµÄFollower½áµã£¬¼¯ÈºÈÔÈ»¿ÉÒÔÕý³£ÔË?£»Èç¹ûÊÇLeaderå´»ú£¬¾ÍÐèÒªÖØÐÂÑ¡¾ÙÐÂµÄLeader½áµã£¬Ñ¡¾Ù³É¹¦ºó£¬¼ÌÐøÌá¹©·þÎñ¡£
+- »ù±¾Ë¼Â·£º¸ù¾ÝRaftÐ­ÒéÑ¡¾Ù³öLeader£¬ClientÏòLeader½áµã·¢ËÍÇëÇó£¬µ±leaderÐ´ÈëÏà¹Ø²Ù×÷µÄÈÕÖ¾£¬²¢ÇÒÍ¨¹ýÐÄÌø´«µÝ¸øFollower½áµã£¬Follower½áµãÐ´ÈëÈÕÖ¾ºó£¬·µ»Ø³É¹¦±êÊ¶£¬µ±Ò»°ëÒÔÉÏµÄ½áµãÐ´Èë³É¹¦ºó£¬LeaderÐ´Èëµ½×´Ì¬»úÖÐ£¬·µ»Ø³É¹¦¸ø¿Í»§¶Ë£¬FollowerÊÕµ½ÏÂÒ»´ÎÐÄÌøµÄÏûÏ¢ºó£¬Ò²Ó¦ÓÃµ½×´Ì¬»úÖÐ¡£
+- ÈÝ´í£ºÈç¹ûÊÇFollowerå´»ú£¬´ËÊ±Èç¹ûÈÔÈ»ÓÐÒ»°ëÒÔÉÏµÄFollower½áµã£¬¼¯ÈºÈÔÈ»¿ÉÒÔÕý³£ÔËÐÐ£»Èç¹ûÊÇLeaderå´»ú£¬¾ÍÐèÒªÖØÐÂÑ¡¾ÙÐÂµÄLeader½áµã£¬Ñ¡¾Ù³É¹¦ºó£¬¼ÌÐøÌá¹©·þÎñ¡£
 ##### ¶à¸±±¾Ð´¹¦ÄÜ
 - ÎÒÃÇÕâÀïµÄ¶à¸±±¾Ð´²ßÂÔÊÇ£ºÐÇÐÍÐ´¡£
   
